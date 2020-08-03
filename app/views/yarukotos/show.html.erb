@@ -1,0 +1,7 @@
+<h1>やることメモ詳細</h1>
+
+<p><%= @yarukoto.content %></p>
+
+<%= link_to '一覧に戻る', yarukotos_path %>
+<%= link_to '編集する', edit_yarukoto_path(@yarukoto) %>
+<%= link_to '削除する', @yarukoto, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>

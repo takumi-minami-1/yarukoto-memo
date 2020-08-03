@@ -1,0 +1,9 @@
+<h1>やることメモ一覧</h1>
+
+<ul>
+  <% @yarukotos.each do |yarukoto| %>
+    <li><%= link_to yarukoto.id, yarukoto %> : <%= yarukoto.content %></li>
+  <% end %>
+</ul>
+
+<%= link_to '新規やることメモの投稿', new_yarukoto_path %>

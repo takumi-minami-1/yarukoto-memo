@@ -1,0 +1,2 @@
+class Yarukoto < ApplicationRecord
+end

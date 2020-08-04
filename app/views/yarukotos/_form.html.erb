@@ -1,17 +1,22 @@
-<%= form_with(model: yarukoto, local: true) do |f| %>
+<div class="row">
+  <div class="col-6">
+    <%= form_with(model: yarukoto, local: true) do |f| %>
+      <% if yarukoto.errors.any? %>
+        <div id="error_explanation" class="alert alert-danger">
+          <ul>
+            <% yarukoto.errors.full_messages.each do |yarukoto| %>
+              <li><%= yarukoto %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-  <% if yarukoto.errors.any? %>
-    <div id="error_explanation">
-      <ul>
-        <% yarukoto.errors.full_messages.each do |yarukoto| %>
-          <li><%= yarukoto %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+      <div class="form-group">
+        <%= f.label :content, 'メッセージ' %>
+        <%= f.text_field :content,class: 'form-control' %>
+      </div>
 
-  <%= f.label :content, 'メッセージ' %>
-  <%= f.text_field :content %>
-
-  <%= f.submit '投稿' %>
-<% end %>
+      <%= f.submit '投稿',class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

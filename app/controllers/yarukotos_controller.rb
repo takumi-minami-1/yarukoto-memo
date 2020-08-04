@@ -1,10 +1,11 @@
 class YarukotosController < ApplicationController
+  before_action :set_message, only: [:show, :edit, :update, :destroy]  
+  
   def index
     @yarukotos = Yarukoto.all
   end
 
   def show
-    @yarukoto = Yarukoto.find(params[:id])
   end
 
   def new
@@ -24,11 +25,9 @@ class YarukotosController < ApplicationController
   end
 
   def edit
-    @yarukoto = Yarukoto.find(params[:id])
   end
 
   def update
-    @yarukoto = Yarukoto.find(params[:id])
 
     if @yarukoto.update(message_params)
       flash[:success] = 'やることが更新されました'
@@ -40,7 +39,6 @@ class YarukotosController < ApplicationController
   end
 
   def destroy
-    @yarukoto = Yarukoto.find(params[:id])
     @yarukoto.destroy
 
     flash[:success] = 'やることが削除されました'
@@ -48,6 +46,10 @@ class YarukotosController < ApplicationController
   end
 
   private
+  
+  def set_message
+    @yarukoto = Yarukoto.find(params[:id])
+  end  
 
   # Strong Parameter
   def message_params

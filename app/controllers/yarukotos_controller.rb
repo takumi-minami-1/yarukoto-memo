@@ -2,7 +2,7 @@ class YarukotosController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy]  
   
   def index
-    @yarukotos = Yarukoto.all
+    @yarukotos = Yarukoto.order(id: :desc).page(params[:page]).per(10)
   end
 
   def show

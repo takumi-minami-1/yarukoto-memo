@@ -1,12 +1,17 @@
-<h1>やることメモ詳細</h1>
+<div class="text-center">
+  <h1>やることメモ詳細</h1>
+</div>
 
-<table class="table table-bordered">
-  <tr>
-    <th>内容</th>
-    <td><%= @yarukoto.content %></td>
-  </tr>
-</table>
-
-<%= link_to '一覧に戻る', yarukotos_path, class: 'btn-success' %>
-<%= link_to '編集する', edit_yarukoto_path(@yarukoto), class: 'btn btn-warning' %>
-<%= link_to '削除する', @yarukoto, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } class: 'btn btn-danger' %>
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+    <table class="table table-bordered">
+      <tr>
+        <th>内容</th>
+        <td><%= @yarukoto.content %></td>
+      </tr>
+    </table>
+  <%= link_to '一覧に戻る', yarukotos_path, class: 'btn btn-success btn-block' %>
+  <%= link_to '編集する', edit_yarukoto_path(@yarukoto), class: 'btn btn-warning btn-block' %>
+  <%= link_to '削除する', @yarukoto, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger btn-block' %>
+  </div>
+</div>

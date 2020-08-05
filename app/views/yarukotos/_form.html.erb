@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-6">
+  <div class="col-sm-6 offset-sm-3">
     <%= form_with(model: yarukoto, local: true) do |f| %>
       <% if yarukoto.errors.any? %>
         <div id="error_explanation" class="alert alert-danger">
@@ -16,7 +16,7 @@
         <%= f.text_field :content,class: 'form-control' %>
       </div>
 
-      <%= f.submit '投稿',class: 'btn btn-primary' %>
+      <%= f.submit '投稿',class: 'btn btn-primary btn-block' %>
     <% end %>
   </div>
 </div>

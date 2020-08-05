@@ -1,5 +1,11 @@
-<h1>やることメモ新規作成</h1>
+<div class="text-center">
+  <h1>やることメモ作成</h1>
+</div>
 
 <%= render 'form', yarukoto: @yarukoto %>
 
-<%= link_to '一覧に戻る', yarukotos_path, class: 'btn-success' %>
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+    <%= link_to '一覧に戻る', yarukotos_path, class: 'btn btn-success btn-block mt-2' %>
+  </div>
+</div>

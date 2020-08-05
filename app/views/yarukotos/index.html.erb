@@ -1,23 +1,33 @@
-<h1>やることメモ一覧</h1>
+<div class="text-center">
+  <h1>やることメモ一覧</h1>
+</div>
 
-<% if @messages.any? %>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>内容</th>
-      </tr>
-    </thead>
-    <tbody>
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+    <% if @yarukotos.any? %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>内容</th>
+        </tr>
+      </thead>
+      <tbody>
       <% @yarukotos.each do |yarukoto| %>
         <tr>
           <td><%= link_to yarukoto.content, yarukoto %></td>
         </tr>
       <% end %>
-    </tbody>
-  </table>
-  <div>
-    <%= paginate @yarukotos %>
+      </tbody>
+    </table>
+      <div>
+        <%= paginate @yarukotos %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
 
-<%= link_to '新規やることメモの投稿', new_yarukoto_path, class: "btn btn-primary" %>
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+    <%= link_to 'やることメモの投稿', new_yarukoto_path, class: "btn btn-primary btn-block" %>
+  </div>
+</div>

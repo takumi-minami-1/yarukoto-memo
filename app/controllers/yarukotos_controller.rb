@@ -3,7 +3,7 @@ class YarukotosController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy]  
   
   def index
-    @yarukotos = Yarukoto.order(id: :desc).page(params[:page]).per(10)
+    @yarukotos = current_user.yarukotos.order(id: :desc).page(params[:page]).per(10)
   end
 
   def show
@@ -14,7 +14,7 @@ class YarukotosController < ApplicationController
   end
 
   def create
-    @yarukoto = Yarukoto.new(message_params)
+    @yarukoto = current_user.yarukotos.new(message_params)
 
     if @yarukoto.save
       flash[:success] = 'やることが投稿されました'

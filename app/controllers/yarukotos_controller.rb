@@ -1,4 +1,5 @@
 class YarukotosController < ApplicationController
+  before_action :require_user_logged_in
   before_action :set_message, only: [:show, :edit, :update, :destroy]  
   
   def index
